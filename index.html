@@ -578,7 +578,7 @@
           <textarea id="c-address" name="address" autocomplete="street-address" required=""></textarea>
         </div>
         <label class="checkline">
-          <input id="c-confirm" type="checkbox" required="">
+          <input id="c-confirm" name="confirmed" type="checkbox" required="">
           <span class="i18n-en">I am an individual resident of Ontario, contributing my own funds (not on behalf of a corporation, trade union, or other person or entity), and this brings my total contributions to this campaign to $1,200 or less.</span>
           <span class="i18n-fr">Je suis un particulier résidant en Ontario, je verse mes propres fonds (et non au nom d'une société, d'un syndicat ou d'une autre personne ou entité), et cette contribution porte le total de mes contributions à cette campagne à 1 200 $ ou moins.</span>
         </label>
@@ -677,6 +677,20 @@
       }
       note.textContent = msg.thanks(name, amount);
       note.classList.add('success');
+
+      // Send a copy to Formspree in the background so the campaign gets it
+      // even if the contributor's device has no email app configured.
+      // This never blocks or interrupts the page — failures are ignored,
+      // and the mailto: draft below still opens as a second, independent copy.
+      try{
+        var fd = new FormData(form);
+        fd.append('_subject', 'New campaign contribution form submission');
+        fetch('https://formspree.io/f/mljedoyn', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd
+        }).catch(function(){});
+      }catch(err){}
 
       var addrEl = document.getElementById('etransfer-addr');
       var boxEl = document.getElementById('etransfer-box');
