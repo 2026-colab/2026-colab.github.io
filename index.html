@@ -577,6 +577,10 @@
           <label for="c-address"><span class="i18n-en">Mailing address</span><span class="i18n-fr">Adresse postale</span></label>
           <textarea id="c-address" name="address" autocomplete="street-address" required=""></textarea>
         </div>
+        <div class="field full">
+          <label for="c-email"><span class="i18n-en">Your email (optional)</span><span class="i18n-fr">Votre courriel (facultatif)</span></label>
+          <input id="c-email" name="email" type="email" autocomplete="email">
+        </div>
         <label class="checkline">
           <input id="c-confirm" name="confirmed" type="checkbox" required="">
           <span class="i18n-en">I am an individual resident of Ontario, contributing my own funds (not on behalf of a corporation, trade union, or other person or entity), and this brings my total contributions to this campaign to $1,200 or less.</span>
@@ -612,10 +616,11 @@
         confirmFirst: 'Please confirm your eligibility before sending.',
         thanks: function(name, amount){ return 'Thanks, ' + name + ' — your details are on file. This form does not send money. Please open your own online banking now and send an Interac e-Transfer for $' + amount + ' to the address above — that\'s the step that actually contributes. A separate copy of these details is emailing to the campaign now, just for our records.'; },
         subject: 'Campaign contribution — ',
-        body: function(name,address,amount){
+        body: function(name,address,amount,email){
           return 'Name: ' + name + '\n' +
             'Mailing address: ' + address + '\n' +
-            'Amount sent by e-Transfer: $' + amount + ' CAD\n\n' +
+            'Amount sent by e-Transfer: $' + amount + ' CAD\n' +
+            (email ? 'Email: ' + email + '\n' : '') + '\n' +
             'Confirms: individual resident of Ontario, own funds, total contributions to this campaign ≤ $1,200.';
         }
       },
@@ -625,10 +630,11 @@
         confirmFirst: 'Veuillez confirmer votre admissibilité avant d\'envoyer.',
         thanks: function(name, amount){ return 'Merci, ' + name + ' — vos renseignements sont au dossier. Ce formulaire n\'envoie aucun argent. Veuillez maintenant ouvrir votre propre application bancaire et envoyer un virement Interac de ' + amount + ' $ à l\'adresse ci-dessus — c\'est cette étape qui contribue réellement. Une copie de ces détails est envoyée par courriel à la campagne, pour nos dossiers seulement.'; },
         subject: 'Contribution à la campagne — ',
-        body: function(name,address,amount){
+        body: function(name,address,amount,email){
           return 'Nom : ' + name + '\n' +
             'Adresse postale : ' + address + '\n' +
-            'Montant envoyé par virement Interac : ' + amount + ' $ CAD\n\n' +
+            'Montant envoyé par virement Interac : ' + amount + ' $ CAD\n' +
+            (email ? 'Courriel : ' + email + '\n' : '') + '\n' +
             'Confirme : particulier résidant en Ontario, fonds personnels, total des contributions à cette campagne ≤ 1 200 $.';
         }
       }
@@ -659,6 +665,7 @@
       var name = document.getElementById('c-name').value.trim();
       var amount = document.getElementById('c-amount').value.trim();
       var address = document.getElementById('c-address').value.trim();
+      var email = document.getElementById('c-email') ? document.getElementById('c-email').value.trim() : '';
       var confirmed = document.getElementById('c-confirm').checked;
       var note = document.getElementById('c-note');
       note.classList.remove('success');
@@ -700,7 +707,7 @@
       if(instrEl){ instrEl.hidden = false; }
 
       var subject = encodeURIComponent(msg.subject + name);
-      var body = encodeURIComponent(msg.body(name, address, amount));
+      var body = encodeURIComponent(msg.body(name, address, amount, email));
       window.setTimeout(function(){
         window.location.href = 'mailto:daniel@acadiafarm.com?subject=' + subject + '&body=' + body;
       }, 900);
