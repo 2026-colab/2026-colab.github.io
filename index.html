@@ -1,5 +1,4 @@
 
-<!-- saved from url=(0042)file:///C:/Users/AC/Downloads/index_4.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Daniel Journeaux for Mayor</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
@@ -249,6 +248,26 @@
   .entry p{ margin:8px 0 0; color:var(--ink-soft); max-width:58ch; }
   @media (max-width:640px){ .entry{ grid-template-columns:1fr; gap:8px; } }
 
+
+
+  /* keep anchor targets clear of the sticky header */
+  section[id]{ scroll-margin-top:var(--header-h, 80px); }
+
+  /* ---------- rail (VIA vs Alto) ---------- */
+  .rail{ padding:64px 0; background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .rail .intro{ max-width:62ch; color:var(--ink-soft); margin:0 0 28px; }
+  .rail .intro strong{ color:var(--ink); font-weight:600; }
+  .rail .compare{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px; }
+  .rail .opt{ background:var(--ground); border:1px solid var(--line); border-top:5px solid var(--ink-faint); padding:22px 24px; }
+  .rail .opt.via{ border-top-color:var(--accent); }
+  .rail .opt h3{ font-family:"IBM Plex Mono", monospace; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin:0; }
+  .rail .opt.via h3{ color:var(--accent); }
+  .rail .opt .big{ font-family:"Big Shoulders Display", sans-serif; font-weight:800; font-size:2.6rem; line-height:1; margin:10px 0 12px; color:var(--ink); }
+  .rail .opt ul{ margin:0; padding-left:18px; color:var(--ink-soft); }
+  .rail .opt li{ margin:4px 0; }
+  .rail .note{ margin:22px 0 0; font-size:0.9rem; color:var(--ink-faint); max-width:70ch; }
+  @media (max-width:640px){ .rail .compare{ grid-template-columns:1fr; } }
+
   /* ---------- election stat ---------- */
   .stat-strip{ background:var(--ink); color:var(--ground); padding:34px 0; }
   .stat-strip .row{ display:flex; gap:40px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
@@ -352,9 +371,10 @@
     </div>
     <div class="navright">
       <nav class="links">
-        <a href="file:///C:/Users/AC/Downloads/index_4.html#about"><span class="i18n-en">About</span><span class="i18n-fr">À propos</span></a>
-        <a href="file:///C:/Users/AC/Downloads/index_4.html#platform"><span class="i18n-en">Platform</span><span class="i18n-fr">Programme</span></a>
-        <a href="file:///C:/Users/AC/Downloads/index_4.html#involved"><span class="i18n-en">Get Involved</span><span class="i18n-fr">Participez</span></a>
+        <a href="#about"><span class="i18n-en">About</span><span class="i18n-fr">À propos</span></a>
+        <a href="#platform"><span class="i18n-en">Platform</span><span class="i18n-fr">Programme</span></a>
+        <a href="#rail"><span class="i18n-en">VIA vs Alto</span><span class="i18n-fr">VIA ou Alto</span></a>
+        <a href="#involved"><span class="i18n-en">Get Involved</span><span class="i18n-fr">Participez</span></a>
       </nav>
       <div class="langswitch" role="group" aria-label="Language / Langue">
         <button type="button" id="btn-en" aria-pressed="true">EN</button>
@@ -392,8 +412,8 @@
         <span class="i18n-fr">Des routes qu'on emprunte chaque jour à l'eau qui coule du robinet, les infrastructures de Hawkesbury Est ont besoin d'un maire prêt à aller chercher chaque dollar de financement disponible — et à dire clairement aux résidents ce qui est prévu, avant que ça arrive.</span>
       </p>
       <div class="cta-row">
-        <a class="btn primary" href="file:///C:/Users/AC/Downloads/index_4.html#platform"><span class="i18n-en">See the Platform</span><span class="i18n-fr">Voir le programme</span></a>
-        <a class="btn ghost" href="file:///C:/Users/AC/Downloads/index_4.html#involved"><span class="i18n-en">Get Involved</span><span class="i18n-fr">Participez</span></a>
+        <a class="btn primary" href="#platform"><span class="i18n-en">See the Platform</span><span class="i18n-fr">Voir le programme</span></a>
+        <a class="btn ghost" href="#involved"><span class="i18n-en">Get Involved</span><span class="i18n-fr">Participez</span></a>
       </div>
     </div>
     <div class="hero-photo">
@@ -489,6 +509,38 @@
   </div>
 </section>
 
+<section class="rail" id="rail">
+  <div class="wrap">
+    <div class="section-head">
+      <h2><span class="i18n-en">A better alternative to Alto</span><span class="i18n-fr">Une meilleure alternative à Alto</span></h2>
+      <p class="eyebrow"><span class="i18n-en">Fix the train we already have</span><span class="i18n-fr">Réparons le train qu'on a déjà</span></p>
+    </div>
+    <p class="intro i18n-en">Alto's high-speed line would need a new 1,000&nbsp;km corridor, and its route through Prescott-Russell could cut across our farmland. Saying no is not enough: we need an alternative that works for the government, CN, VIA, travellers and every town along the line. My plan <strong>fixes and expands VIA Rail on the tracks we already have</strong>, roughly doubling service between Québec City and Toronto.</p>
+    <p class="intro i18n-fr">La ligne à grande vitesse d'Alto exigerait un nouveau corridor de 1&nbsp;000&nbsp;km, et son tracé dans Prescott-Russell pourrait traverser nos terres agricoles. Dire non ne suffit pas : il faut une alternative qui convient au gouvernement, au CN, à VIA, aux voyageurs et à chaque ville le long de la ligne. Mon plan <strong>répare et agrandit VIA Rail sur les voies qui existent déjà</strong>, en doublant environ le service entre Québec et Toronto.</p>
+    <div class="compare">
+      <div class="opt via">
+        <h3><span class="i18n-en">Fix VIA</span><span class="i18n-fr">Réparer VIA</span></h3>
+        <div class="big"><span class="i18n-en">$5.5B</span><span class="i18n-fr">5,5&nbsp;G$</span></div>
+        <ul class="i18n-en"><li>Better service by 2029</li><li>About 130 acres of land, beside existing track</li><li>Every town keeps its station</li><li>About 86 cents of public benefit per dollar spent</li></ul>
+        <ul class="i18n-fr"><li>Un meilleur service dès 2029</li><li>Environ 130 acres de terrain, le long des voies actuelles</li><li>Chaque ville garde sa gare</li><li>Environ 0,86&nbsp;$ d'avantages publics par dollar dépensé</li></ul>
+      </div>
+      <div class="opt">
+        <h3><span class="i18n-en">Build Alto</span><span class="i18n-fr">Construire Alto</span></h3>
+        <div class="big"><span class="i18n-en">$75–113B</span><span class="i18n-fr">75–113&nbsp;G$</span></div>
+        <ul class="i18n-en"><li>First trains around 2036–38</li><li>A new 1,000&nbsp;km corridor through farmland</li><li>Only a few stations</li><li>About 14 cents of public benefit per dollar, on realistic ridership</li></ul>
+        <ul class="i18n-fr"><li>Premiers trains vers 2036–2038</li><li>Un nouveau corridor de 1&nbsp;000&nbsp;km à travers les terres agricoles</li><li>Seulement quelques gares</li><li>Environ 0,14&nbsp;$ d'avantages publics par dollar, selon un achalandage réaliste</li></ul>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="docs/VIA-alternative-to-Alto-summary-EN.pdf" target="_blank" rel="noopener"><span class="i18n-en">Executive summary (English)</span><span class="i18n-fr">Sommaire (anglais)</span></a>
+      <a class="btn primary" href="docs/VIA-alternative-a-Alto-sommaire-FR.pdf" target="_blank" rel="noopener"><span class="i18n-en">Executive summary (French)</span><span class="i18n-fr">Sommaire (français)</span></a>
+      <a class="btn ghost" href="docs/VIA-corridor-plan-full-report.pdf" target="_blank" rel="noopener"><span class="i18n-en">Full 36-page plan (English)</span><span class="i18n-fr">Plan complet de 36 pages (anglais)</span></a>
+    </div>
+    <p class="note i18n-en">Alto cost range from the Parliamentary Budget Officer (October 2026). Plan figures are planning-level estimates from public data, to be verified by CN, VIA, Transport Canada and the Parliamentary Budget Officer.</p>
+    <p class="note i18n-fr">Fourchette de coûts d'Alto : Directeur parlementaire du budget (octobre 2026). Les chiffres du plan sont des estimations préliminaires fondées sur des données publiques, à faire vérifier par le CN, VIA, Transports Canada et le Directeur parlementaire du budget.</p>
+  </div>
+</section>
+
 <section class="stat-strip">
   <div class="wrap row">
     <div class="item">
@@ -543,8 +595,8 @@
         <div class="etransfer" id="etransfer-box">
           <div class="eyebrow"><span class="i18n-en">Send an Interac e-Transfer to</span><span class="i18n-fr">Envoyez un virement Interac à</span></div>
           <div class="addr locked" id="etransfer-addr">
-            <span class="i18n-en">Locked — <a href="file:///C:/Users/AC/Downloads/index_4.html#contrib-form">complete the form below</a> to reveal the address.</span>
-            <span class="i18n-fr">Verrouillée — <a href="file:///C:/Users/AC/Downloads/index_4.html#contrib-form">remplissez le formulaire ci-dessous</a> pour afficher l'adresse.</span>
+            <span class="i18n-en">Locked — <a href="#contrib-form">complete the form below</a> to reveal the address.</span>
+            <span class="i18n-fr">Verrouillée — <a href="#contrib-form">remplissez le formulaire ci-dessous</a> pour afficher l'adresse.</span>
           </div>
           <div class="addr-instruction" id="etransfer-instruction" hidden="">
             <span class="i18n-en"><strong>Now send it yourself:</strong> open your own banking app or online banking and send an Interac e-Transfer for your amount to the address above. Submitting the form does not do this for you — nothing is charged or transferred automatically.</span>
@@ -713,5 +765,12 @@
       }, 900);
     });
   })();
+</script>
+<script>
+(function(){
+  function setH(){ var h=document.querySelector('header.site'); if(h){ document.documentElement.style.setProperty('--header-h',(h.offsetHeight+12)+'px'); } }
+  setH(); window.addEventListener('resize',setH);
+  if(location.hash){ window.addEventListener('load',function(){ var t=document.getElementById(location.hash.slice(1)); if(t){ t.scrollIntoView(); } }); }
+})();
 </script>
 </body></html>
